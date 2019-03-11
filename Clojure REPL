@@ -1,0 +1,312 @@
+REPL Instructions
+
+Code can be entered at the bottom and executed by pressing shift+enter.
+
+Try it now by typing (+ 1 1) in the bottom section and pressing shift+enter.
+
+Working in another Clojure file and sending forms to the REPL is the most efficient way to work. Use the following key bindings to send code to the REPL. See the settings for more keybindings.
+
+ctrl-alt-, then b
+Execute block. Finds the block of Clojure code your cursor is in and executes that.
+
+ctrl-alt-, s
+Executes the selection. Sends the selected text to the REPL.
+
+You can disable this help text in the settings.
+Starting REPL with lein in /home/adrien/github/chords-generator
+nREPL server started on port 44851 on host 127.0.0.1 - nrepl://127.0.0.1:44851
+Refreshing code...
+:reloading (scales.computing scales.seesaw scales.core scales.core-test)
+Refresh complete
+(in-ns 'scales.seesaw)
+scales.seesaw=>
+#object[clojure.lang.Namespace 0xae8aaa5 "scales.seesaw"]
+(keys degrees)
+scales.seesaw=>
+(:second :third :fourth :fifth :sixth :seventh)
+(degrees-keys)
+Execution error (ClassCastException) at scales.seesaw/eval9010 (form-init5321832628136270116.clj:1).
+clojure.lang.APersistentMap$KeySeq cannot be cast to clojure.lang.IFn
+(in-ns 'scales.seesaw)
+scales.seesaw=>
+#object[clojure.lang.Namespace 0xae8aaa5 "scales.seesaw"]
+:reloading
+scales.seesaw=>
+:reloading
+(make-listbox degrees 2)
+Execution error (UnsupportedOperationException) at scales.seesaw/make-listbox (seesaw.clj:26).
+nth not supported on this type: PersistentArrayMap
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (scales.seesaw scales.core)
+Refresh complete
+(make-listbox degrees 2)
+scales.seesaw=>
+#object[seesaw.core.proxy$javax.swing.JList$Tag$fd407141 0x211398e9 "seesaw.core.proxy$javax.swing.JList$Tag$fd407141[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=javax.swing.plaf.synth.SynthBorder@7ac9b344,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=80,g=126,b=217],selectionForeground=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],visibleRowCount=8,layoutOrientation=0]"]
+(make-listbox degrees 2)
+scales.seesaw=>
+#object[seesaw.core.proxy$javax.swing.JList$Tag$fd407141 0x3ae0a961 "seesaw.core.proxy$javax.swing.JList$Tag$fd407141[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=javax.swing.plaf.synth.SynthBorder@3c61810,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=80,g=126,b=217],selectionForeground=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],visibleRowCount=8,layoutOrientation=0]"]
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (scales.seesaw scales.core)
+Refresh complete
+(notes-listboxes)
+Execution error (ClassCastException) at scales.seesaw/eval10879 (form-init5321832628136270116.clj:1).
+clojure.lang.LazySeq cannot be cast to clojure.lang.IFn
+(map #(make-listboxes degrees %) (range 0 6))
+Syntax error compiling at (form-init5321832628136270116.clj:1:11).
+Unable to resolve symbol: make-listboxes in this context
+(map #(make-listbox degrees %) (range 0 6))
+scales.seesaw=>
+(#object[seesaw.core.proxy$javax.swing.JList$Tag$fd407141 0x351946cf "seesaw.core.proxy$javax.swing.JList$Tag$fd407141[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=javax.swing.plaf.synth.SynthBorder@4f2b4fbb,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=80,g=126,b=217],selectionForeground=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],visibleRowCount=8,layoutOrientation=0]"] #object[seesaw.core.proxy$javax.swing.JList$Tag$fd407141 0x17a90e67 "seesaw.core.proxy$javax.swing.JList$Tag$fd407141[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=javax.swing.plaf.synth.SynthBorder@18b15911,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=80,g=126,b=217],selectionForeground=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],visibleRowCount=8,layoutOrientation=0]"] #object[seesaw.core.proxy$javax.swing.JList$Tag$fd407141 0x7dbadc12 "seesaw.core.proxy$javax.swing.JList$Tag$fd407141[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=javax.swing.plaf.synth.SynthBorder@2eacdbe,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=80,g=126,b=217],selectionForeground=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],visibleRowCount=8,layoutOrientation=0]"] #object[seesaw.core.proxy$javax.swing.JList$Tag$fd407141 0x30d48ade "seesaw.core.proxy$javax.swing.JList$Tag$fd407141[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=javax.swing.plaf.synth.SynthBorder@6f517b65,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=80,g=126,b=217],selectionForeground=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],visibleRowCount=8,layoutOrientation=0]"] #object[seesaw.core.proxy$javax.swing.JList$Tag$fd407141 0x4ff62c99 "seesaw.core.proxy$javax.swing.JList$Tag$fd407141[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=javax.swing.plaf.synth.SynthBorder@64072647,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=80,g=126,b=217],selectionForeground=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],visibleRowCount=8,layoutOrientation=0]"] #object[seesaw.core.proxy$javax.swing.JList$Tag$fd407141 0x3f8e0196 "seesaw.core.proxy$javax.swing.JList$Tag$fd407141[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=javax.swing.plaf.synth.SynthBorder@2b18fc51,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=80,g=126,b=217],selectionForeground=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],visibleRowCount=8,layoutOrientation=0]"])
+:reloading
+scales.seesaw=>
+:reloading
+notes-listboxes
+scales.seesaw=>
+(#object[seesaw.core.proxy$javax.swing.JList$Tag$fd407141 0x598c71f0 "seesaw.core.proxy$javax.swing.JList$Tag$fd407141[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=javax.swing.plaf.synth.SynthBorder@443cbf79,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=80,g=126,b=217],selectionForeground=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],visibleRowCount=8,layoutOrientation=0]"] #object[seesaw.core.proxy$javax.swing.JList$Tag$fd407141 0x25c38e3d "seesaw.core.proxy$javax.swing.JList$Tag$fd407141[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=javax.swing.plaf.synth.SynthBorder@29017a2f,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=80,g=126,b=217],selectionForeground=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],visibleRowCount=8,layoutOrientation=0]"] #object[seesaw.core.proxy$javax.swing.JList$Tag$fd407141 0x3e9cc80e "seesaw.core.proxy$javax.swing.JList$Tag$fd407141[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=javax.swing.plaf.synth.SynthBorder@4253a8b,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=80,g=126,b=217],selectionForeground=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],visibleRowCount=8,layoutOrientation=0]"] #object[seesaw.core.proxy$javax.swing.JList$Tag$fd407141 0x25e5ca26 "seesaw.core.proxy$javax.swing.JList$Tag$fd407141[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=javax.swing.plaf.synth.SynthBorder@1c6e0df0,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=80,g=126,b=217],selectionForeground=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],visibleRowCount=8,layoutOrientation=0]"] #object[seesaw.core.proxy$javax.swing.JList$Tag$fd407141 0x50bd38c2 "seesaw.core.proxy$javax.swing.JList$Tag$fd407141[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=javax.swing.plaf.synth.SynthBorder@8394d73,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=80,g=126,b=217],selectionForeground=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],visibleRowCount=8,layoutOrientation=0]"] #object[seesaw.core.proxy$javax.swing.JList$Tag$fd407141 0x376fe7fe "seesaw.core.proxy$javax.swing.JList$Tag$fd407141[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=javax.swing.plaf.synth.SynthBorder@3c50aea8,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=80,g=126,b=217],selectionForeground=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],visibleRowCount=8,layoutOrientation=0]"])
+(type notes-listboxes)
+scales.seesaw=>
+clojure.lang.LazySeq
+(map type notes-listboxes)
+scales.seesaw=>
+(seesaw.core.proxy$javax.swing.JList$Tag$fd407141 seesaw.core.proxy$javax.swing.JList$Tag$fd407141 seesaw.core.proxy$javax.swing.JList$Tag$fd407141 seesaw.core.proxy$javax.swing.JList$Tag$fd407141 seesaw.core.proxy$javax.swing.JList$Tag$fd407141 seesaw.core.proxy$javax.swing.JList$Tag$fd407141)
+(count notes-listboxes)
+scales.seesaw=>
+6
+(map #(fn [x] (map vals (nth-4-hmaps degrees x))) (range 0 6))
+Error printing return value (ArityException) at clojure.lang.AFn/throwArity (AFn.java:429).
+Wrong number of args (1) passed to: scales.seesaw/eval12183/fn--12184
+(map #(fn [x] (map vals (nth-4-hmaps degrees x) (range 0 6))))
+scales.seesaw=>
+#object[clojure.core$map$fn__5847 0x4d3de1b6 "clojure.core$map$fn__5847@4d3de1b6"]
+(map vals (nth-4-hmaps degrees x) (range 0 6))
+Syntax error compiling at (form-init5321832628136270116.clj:1:15).
+Unable to resolve symbol: x in this context
+(map vals (nth-4-hmaps degrees %) (range 0 6))
+Syntax error compiling at (form-init5321832628136270116.clj:1:15).
+Unable to resolve symbol: % in this context
+(map (fn [rank] (map vals (nth-4-hmaps map-degrees rank))) (range 0 6))
+Syntax error compiling at (form-init5321832628136270116.clj:1:31).
+Unable to resolve symbol: map-degrees in this context
+(map (fn [rank] (map vals (nth-4-hmaps degrees rank))) (range 0 6))
+Error printing return value (ClassCastException) at clojure.lang.APersistentMap$ValSeq/first (APersistentMap.java:236).
+clojure.lang.Keyword cannot be cast to java.util.Map$Entry
+(map #(nth degrees %) (range 0 6))
+Error printing return value (UnsupportedOperationException) at clojure.lang.RT/nthFrom (RT.java:928).
+nth not supported on this type: PersistentArrayMap
+(map #(nth-4-hmaps degrees %) (range 0 6))
+scales.seesaw=>
+(() ([:second {:minor "Minor second", :major "Major second"}]) ([:third {:minor "Minor third", :major "Major third"}]) ([:fourth {:diminished "Diminished fourth", :perfect "Perfect fourth", :augmented "Augmented fourth"}]) ([:fifth {:diminished "Diminished fifth", :perfect "Perfect fifth", :augmented "Augmented fifth"}]) ([:sixth {:minor "Minor sixth", :major "Major sixth"}]))
+(map vals *1)
+scales.seesaw=>
+(nil ({:minor "Minor second", :major "Major second"}) ({:minor "Minor third", :major "Major third"}) ({:diminished "Diminished fourth", :perfect "Perfect fourth", :augmented "Augmented fourth"}) ({:diminished "Diminished fifth", :perfect "Perfect fifth", :augmented "Augmented fifth"}) ({:minor "Minor sixth", :major "Major sixth"}))
+(map #(nth-4-hmaps degrees %) (range 0 6))
+scales.seesaw=>
+(() ([:second {:minor "Minor second", :major "Major second"}]) ([:third {:minor "Minor third", :major "Major third"}]) ([:fourth {:diminished "Diminished fourth", :perfect "Perfect fourth", :augmented "Augmented fourth"}]) ([:fifth {:diminished "Diminished fifth", :perfect "Perfect fifth", :augmented "Augmented fifth"}]) ([:sixth {:minor "Minor sixth", :major "Major sixth"}]))
+(map #(nth-4-hmaps degrees %) (range 0 6))
+scales.seesaw=>
+(() ([:second {:minor "Minor second", :major "Major second"}]) ([:third {:minor "Minor third", :major "Major third"}]) ([:fourth {:diminished "Diminished fourth", :perfect "Perfect fourth", :augmented "Augmented fourth"}]) ([:fifth {:diminished "Diminished fifth", :perfect "Perfect fifth", :augmented "Augmented fifth"}]) ([:sixth {:minor "Minor sixth", :major "Major sixth"}]))
+(map #(nth-4-hmaps degrees %) (range 1 6))
+scales.seesaw=>
+(([:second {:minor "Minor second", :major "Major second"}]) ([:third {:minor "Minor third", :major "Major third"}]) ([:fourth {:diminished "Diminished fourth", :perfect "Perfect fourth", :augmented "Augmented fourth"}]) ([:fifth {:diminished "Diminished fifth", :perfect "Perfect fifth", :augmented "Augmented fifth"}]) ([:sixth {:minor "Minor sixth", :major "Major sixth"}]))
+(map #(nth-4-hmaps degrees %) (range 1 7))
+scales.seesaw=>
+(([:second {:minor "Minor second", :major "Major second"}]) ([:third {:minor "Minor third", :major "Major third"}]) ([:fourth {:diminished "Diminished fourth", :perfect "Perfect fourth", :augmented "Augmented fourth"}]) ([:fifth {:diminished "Diminished fifth", :perfect "Perfect fifth", :augmented "Augmented fifth"}]) ([:sixth {:minor "Minor sixth", :major "Major sixth"}]) ([:seventh {:diminished "Diminished seventh", :minor "Minor seventh", :major "Major seventh"}]))
+(flatten (map #(nth-4-hmaps degrees %) (range 1 7)))
+scales.seesaw=>
+(:second {:minor "Minor second", :major "Major second"} :third {:minor "Minor third", :major "Major third"} :fourth {:diminished "Diminished fourth", :perfect "Perfect fourth", :augmented "Augmented fourth"} :fifth {:diminished "Diminished fifth", :perfect "Perfect fifth", :augmented "Augmented fifth"} :sixth {:minor "Minor sixth", :major "Major sixth"} :seventh {:diminished "Diminished seventh", :minor "Minor seventh", :major "Major seventh"})
+(map vals (flatten (fn [rank] (map (nth-4-hmaps degrees rank) (range 1 7)))))
+scales.seesaw=>
+()
+(map vals (flatten (fn [rank] (map (nth-4-hmaps degrees rank) (range 1 7)))))
+scales.seesaw=>
+()
+(flatten (fn [rank] (map (nth-4-hmaps degrees rank) (range 1 7))))
+scales.seesaw=>
+()
+(flatten (map (fn [rank] (nth-4-hmaps degrees rank)) (range 1 7)))
+scales.seesaw=>
+(:second {:minor "Minor second", :major "Major second"} :third {:minor "Minor third", :major "Major third"} :fourth {:diminished "Diminished fourth", :perfect "Perfect fourth", :augmented "Augmented fourth"} :fifth {:diminished "Diminished fifth", :perfect "Perfect fifth", :augmented "Augmented fifth"} :sixth {:minor "Minor sixth", :major "Major sixth"} :seventh {:diminished "Diminished seventh", :minor "Minor seventh", :major "Major seventh"})
+(map vals (flatten (map (fn [rank] (nth-4-hmaps degrees rank)) (range 1 7))))
+Error printing return value (IllegalArgumentException) at clojure.lang.RT/seqFrom (RT.java:553).
+Don't know how to create ISeq from: clojure.lang.Keyword
+(map keys (flatten (map (fn [rank] (nth-4-hmaps degrees rank)) (range 1 7))))
+Error printing return value (IllegalArgumentException) at clojure.lang.RT/seqFrom (RT.java:553).
+Don't know how to create ISeq from: clojure.lang.Keyword
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (scales.seesaw scales.core)
+:error-while-loading scales.seesaw
+Syntax error compiling at (scales/seesaw.clj:37:28).
+Refresh complete
+(map #(nth degrees %) (range 0 6))
+Syntax error compiling at (form-init5321832628136270116.clj:1:11).
+Unable to resolve symbol: degrees in this context
+(map #(nth degrees-list %) (range 0 6))
+Syntax error compiling at (form-init5321832628136270116.clj:1:11).
+Unable to resolve symbol: degrees-list in this context
+:reloading
+scales.seesaw=>
+:reloading
+(in-ns 'scales.seesaw)
+scales.seesaw=>
+#object[clojure.lang.Namespace 0x24aadbf6 "scales.seesaw"]
+(map #(nth degrees-list %) (range 0 6))
+Syntax error compiling at (form-init5321832628136270116.clj:1:11).
+Unable to resolve symbol: degrees-list in this context
+degrees-list
+Syntax error compiling at (form-init5321832628136270116.clj:1:869).
+Unable to resolve symbol: degrees-list in this context
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (scales.seesaw scales.core)
+:error-while-loading scales.seesaw
+Syntax error compiling at (scales/seesaw.clj:37:28).
+Refresh complete
+degrees-list
+Syntax error compiling at (form-init5321832628136270116.clj:1:869).
+Unable to resolve symbol: degrees-list in this context
+:reloading
+scales.seesaw=>
+:reloading
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (scales.seesaw scales.core)
+:error-while-loading scales.seesaw
+Syntax error compiling at (seesaw.clj:39:17).
+Refresh complete
+degrees
+Syntax error compiling at (form-init5321832628136270116.clj:1:869).
+Unable to resolve symbol: degrees in this context
+degrees
+Syntax error compiling at (form-init5321832628136270116.clj:1:869).
+Unable to resolve symbol: degrees in this context
+degrees
+Syntax error compiling at (form-init5321832628136270116.clj:1:869).
+Unable to resolve symbol: degrees in this context
+:reloading
+scales.seesaw=>
+:reloading
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (scales.seesaw scales.core)
+:error-while-loading scales.seesaw
+Syntax error compiling at (scales/seesaw.clj:43:16).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (scales.seesaw scales.core)
+Refresh complete
+degrees-list
+scales.seesaw=>
+(["Minor second" "Major second"] ["Minor third" "Major third"] ["Diminished fourth" "Perfect fourth" "Augmented fourth"] ["Diminished fifth" "Perfect fifth" "Augmented fifth"] ["Minor sixth" "Major sixth"] ["Diminished seventh" "Minor seventh" "Major seventh"])
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (scales.seesaw scales.core)
+Refresh complete
+notes-listboxes
+scales.seesaw=>
+(#object[seesaw.core.proxy$javax.swing.JList$Tag$fd407141 0x26eb722e "seesaw.core.proxy$javax.swing.JList$Tag$fd407141[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=javax.swing.plaf.synth.SynthBorder@2cdd8a06,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=80,g=126,b=217],selectionForeground=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],visibleRowCount=8,layoutOrientation=0]"] #object[seesaw.core.proxy$javax.swing.JList$Tag$fd407141 0x60254480 "seesaw.core.proxy$javax.swing.JList$Tag$fd407141[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=javax.swing.plaf.synth.SynthBorder@5c8a26a3,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=80,g=126,b=217],selectionForeground=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],visibleRowCount=8,layoutOrientation=0]"] #object[seesaw.core.proxy$javax.swing.JList$Tag$fd407141 0x5d6f0309 "seesaw.core.proxy$javax.swing.JList$Tag$fd407141[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=javax.swing.plaf.synth.SynthBorder@20e87f38,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=80,g=126,b=217],selectionForeground=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],visibleRowCount=8,layoutOrientation=0]"] #object[seesaw.core.proxy$javax.swing.JList$Tag$fd407141 0x1a96c6e6 "seesaw.core.proxy$javax.swing.JList$Tag$fd407141[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=javax.swing.plaf.synth.SynthBorder@50dd9939,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=80,g=126,b=217],selectionForeground=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],visibleRowCount=8,layoutOrientation=0]"] #object[seesaw.core.proxy$javax.swing.JList$Tag$fd407141 0x5c36584d "seesaw.core.proxy$javax.swing.JList$Tag$fd407141[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=javax.swing.plaf.synth.SynthBorder@79e47b33,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=80,g=126,b=217],selectionForeground=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],visibleRowCount=8,layoutOrientation=0]"] #object[seesaw.core.proxy$javax.swing.JList$Tag$fd407141 0x4c934db0 "seesaw.core.proxy$javax.swing.JList$Tag$fd407141[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=javax.swing.plaf.synth.SynthBorder@601e16a3,flags=50331944,maximumSize=,minimumSize=,preferredSize=,fixedCellHeight=-1,fixedCellWidth=-1,horizontalScrollIncrement=-1,selectionBackground=javax.swing.plaf.ColorUIResource[r=80,g=126,b=217],selectionForeground=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],visibleRowCount=8,layoutOrientation=0]"])
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (scales.seesaw scales.core)
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (scales.seesaw scales.core)
+:error-while-loading scales.seesaw
+Syntax error compiling at (seesaw.clj:43:17).
+Refresh complete
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (scales.seesaw scales.core)
+:error-while-loading scales.seesaw
+Syntax error compiling at (seesaw.clj:43:17).
+Refresh complete
+:reloading
+scales.seesaw=>
+:reloading
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (scales.seesaw scales.core)
+:error-while-loading scales.seesaw
+Syntax error compiling at (seesaw.clj:43:17).
+Refresh complete
+(char 9839)
+scales.seesaw=>
+\♯
+(char 9837)
+scales.seesaw=>
+\♭
+(char 9838)
+scales.seesaw=>
+\♮
+(char 9840)
+scales.seesaw=>
+\♰
+(char 9833)
+scales.seesaw=>
+\♩
+(char 119083)
+Execution error (IllegalArgumentException) at scales.seesaw/eval17184 (form-init5321832628136270116.clj:1).
+Value out of range for char: 119083
+:reloading
+scales.seesaw=>
+:reloading
+Refreshing code...
+No user namespace defined. Defaulting to clojure.tools.namespace.repl/refresh.
+
+:reloading (scales.seesaw scales.core)
+Refresh complete
+degrees-intervals-map
+scales.seesaw=>
+{"Augmented fourth (♯4)" 3, "Augmented fifth (♯5)" 4, "Minor seventh (♭7)" 5, "Diminished fourth (♭4)" 2, "Diminished seventh (𝄫7)" 9/2, "Major seventh (7)" 11/2, "Major second (2)" 1, "Major third (3)" 2, "Major sixth (6)" 9/2, "Perfect fourth (4)" 5/2, "Minor third (3m)" 3/2, "Perfect fifth (5)" 7/2, "Minor second (♭2)" 1/2, "Diminished fifth (♭5)" 3, "Minor sixth (♭6)" 4}
+(count degrees-intervals-map)
+scales.seesaw=>
+15
+(sort degrees-intervals-map)
+scales.seesaw=>
+(["Augmented fifth (♯5)" 4] ["Augmented fourth (♯4)" 3] ["Diminished fifth (♭5)" 3] ["Diminished fourth (♭4)" 2] ["Diminished seventh (𝄫7)" 9/2] ["Major second (2)" 1] ["Major seventh (7)" 11/2] ["Major sixth (6)" 9/2] ["Major third (3)" 2] ["Minor second (♭2)" 1/2] ["Minor seventh (♭7)" 5] ["Minor sixth (♭6)" 4] ["Minor third (3m)" 3/2] ["Perfect fifth (5)" 7/2] ["Perfect fourth (4)" 5/2])
+(sorted-map-by degrees-intervals-map)
+Execution error (ClassCastException) at scales.seesaw/eval19166 (form-init5321832628136270116.clj:1).
+clojure.lang.PersistentHashMap cannot be cast to java.util.Comparator
+(sorted-map-by vals degrees-intervals-map)
+Execution error (IllegalArgumentException) at scales.seesaw/eval19196 (form-init5321832628136270116.clj:1).
+No value supplied for key: {"Augmented fourth (♯4)" 3, "Augmented fifth (♯5)" 4, "Minor seventh (♭7)" 5, "Diminished fourth (♭4)" 2, "Diminished seventh (𝄫7)" 9/2, "Major seventh (7)" 11/2, "Major second (2)" 1, "Major third (3)" 2, "Major sixth (6)" 9/2, "Perfect fourth (4)" 5/2, "Minor third (3m)" 3/2, "Perfect fifth (5)" 7/2, "Minor second (♭2)" 1/2, "Diminished fifth (♭5)" 3, "Minor sixth (♭6)" 4}
+(sorted-map degrees-intervals-map)
+Execution error (IllegalArgumentException) at scales.seesaw/eval19198 (form-init5321832628136270116.clj:1).
+No value supplied for key: {"Augmented fourth (♯4)" 3, "Augmented fifth (♯5)" 4, "Minor seventh (♭7)" 5, "Diminished fourth (♭4)" 2, "Diminished seventh (𝄫7)" 9/2, "Major seventh (7)" 11/2, "Major second (2)" 1, "Major third (3)" 2, "Major sixth (6)" 9/2, "Perfect fourth (4)" 5/2, "Minor third (3m)" 3/2, "Perfect fifth (5)" 7/2, "Minor second (♭2)" 1/2, "Diminished fifth (♭5)" 3, "Minor sixth (♭6)" 4}
+(sorted-map-by < degrees-intervals-map)
+Execution error (IllegalArgumentException) at scales.seesaw/eval19235 (form-init5321832628136270116.clj:1).
+No value supplied for key: {"Augmented fourth (♯4)" 3, "Augmented fifth (♯5)" 4, "Minor seventh (♭7)" 5, "Diminished fourth (♭4)" 2, "Diminished seventh (𝄫7)" 9/2, "Major seventh (7)" 11/2, "Major second (2)" 1, "Major third (3)" 2, "Major sixth (6)" 9/2, "Perfect fourth (4)" 5/2, "Minor third (3m)" 3/2, "Perfect fifth (5)" 7/2, "Minor second (♭2)" 1/2, "Diminished fifth (♭5)" 3, "Minor sixth (♭6)" 4}
+(sorted-map-by < 1 degrees-intervals-map)
+scales.seesaw=>
+{1 {"Augmented fourth (♯4)" 3, "Augmented fifth (♯5)" 4, "Minor seventh (♭7)" 5, "Diminished fourth (♭4)" 2, "Diminished seventh (𝄫7)" 9/2, "Major seventh (7)" 11/2, "Major second (2)" 1, "Major third (3)" 2, "Major sixth (6)" 9/2, "Perfect fourth (4)" 5/2, "Minor third (3m)" 3/2, "Perfect fifth (5)" 7/2, "Minor second (♭2)" 1/2, "Diminished fifth (♭5)" 3, "Minor sixth (♭6)" 4}}
+(flatten degrees-list)
+scales.seesaw=>
+("Minor second (♭2)" "Major second (2)" "Minor third (3m)" "Major third (3)" "Diminished fourth (♭4)" "Perfect fourth (4)" "Augmented fourth (♯4)" "Diminished fifth (♭5)" "Perfect fifth (5)" "Augmented fifth (♯5)" "Minor sixth (♭6)" "Major sixth (6)" "Diminished seventh (𝄫7)" "Minor seventh (♭7)" "Major seventh (7)")
+(zipmap (flatten degrees-list) degrees-intervals)
+scales.seesaw=>
+{"Augmented fourth (♯4)" 3, "Augmented fifth (♯5)" 4, "Minor seventh (♭7)" 5, "Diminished fourth (♭4)" 2, "Diminished seventh (𝄫7)" 9/2, "Major seventh (7)" 11/2, "Major second (2)" 1, "Major third (3)" 2, "Major sixth (6)" 9/2, "Perfect fourth (4)" 5/2, "Minor third (3m)" 3/2, "Perfect fifth (5)" 7/2, "Minor second (♭2)" 1/2, "Diminished fifth (♭5)" 3, "Minor sixth (♭6)" 4}
+(sort (zipmap (flatten degrees-list) degrees-intervals))
+scales.seesaw=>
+(["Augmented fifth (♯5)" 4] ["Augmented fourth (♯4)" 3] ["Diminished fifth (♭5)" 3] ["Diminished fourth (♭4)" 2] ["Diminished seventh (𝄫7)" 9/2] ["Major second (2)" 1] ["Major seventh (7)" 11/2] ["Major sixth (6)" 9/2] ["Major third (3)" 2] ["Minor second (♭2)" 1/2] ["Minor seventh (♭7)" 5] ["Minor sixth (♭6)" 4] ["Minor third (3m)" 3/2] ["Perfect fifth (5)" 7/2] ["Perfect fourth (4)" 5/2])
+(map vals (zipmap (flatten degrees-list) degrees-intervals))
+Error printing return value (ClassCastException) at clojure.lang.APersistentMap$ValSeq/first (APersistentMap.java:236).
+java.lang.String cannot be cast to java.util.Map$Entry
+Already auto evaling
+--------------------
+(map vals (zipmap (flatten degrees-list) degrees-intervals))
