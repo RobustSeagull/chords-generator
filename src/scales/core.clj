@@ -8,8 +8,6 @@
 (defn- display [frame content]
   (config! frame :content content))
 
-(def lb (listbox :model (-> 'seesaw.core ns-publics keys sort)))
-
 (defn -main [& args]
   (display main-frame main-grid)
   (call-frame main-frame))
