@@ -1,4 +1,5 @@
-(ns scales.seesaw (:require [scales.computing :refer :all]))
+(ns scales.seesaw (:require [scales.computing :refer :all]
+                            [clojure.string :refer :all]))
 
 (use 'seesaw.core)
 (use 'seesaw.font)
@@ -53,20 +54,18 @@
 (doall (map #(selection! %1 %2) notes-listboxes major-degrees))
 
 ;update the screen value of the generated chords
-(defn update-chords-text [degree-list] (config! chords-text :text (reduce str degree-list)))
+(defn update-chords-text [degree-list] (config! chords-text :text (clojure.string/join " " degree-list)))
 
 ;convert degrees into a computable list of intervals
-(defn degrees-to-intervals [notes] (let [root-relative-intervals (concat '(0) (replace degrees-intervals-map notes) '(6))]
-                                     (map #(reduce - %) (map reverse (partition 2 1 root-relative-intervals)))))
-
-
+(defn degrees-to-intervals [notes] (let [root-relative-intervals (concat '(0) (clojure.core/replace degrees-intervals-map notes) '(6))]
+                                     (map #(reduce - %) (map clojure.core/reverse (partition 2 1 root-relative-intervals)))))
 
 ;update the value of the _chords atom and recompute the sequence of chords
 (listen notes-listboxes :selection
   (fn [e]
     (let [current-selection (map selection notes-listboxes)
           current-intervals (degrees-to-intervals current-selection)
-          current-chords (generate-chords current-intervals)] (reset! _chords current-chords) (update-chords-text current-chords)))) 
+          current-chords (generate-chords current-intervals)] (reset! _chords current-chords) (update-chords-text current-chords))))
 
 
 ;comboboxes and items
