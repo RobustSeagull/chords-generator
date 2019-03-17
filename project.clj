@@ -5,6 +5,4 @@
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [proto-repl "0.3.1"]
                  [seesaw "1.5.0"]]
-;  :source-paths ["src"]
-;  :repl-options {:port 8081}
   :main ^:skip-aot scales.core)
