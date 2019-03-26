@@ -4,10 +4,10 @@
 
 (use 'seesaw.core)
 
-;The display function allows to add content to the main-frame!
 (defn- display [frame content]
+  "Adds content to frame"
   (config! frame :content content))
 
 (defn -main [& args]
   (display main-frame main-grid)
-  (call-frame main-frame))
+  (call-frame))

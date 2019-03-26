@@ -41,3 +41,7 @@
 (deftest generate-major-scale-chords
   (testing ""
     (is (= (generate-chords [1 1 1/2 1 1 1 1/2]) ["M7" "m7" "m7" "M7" "7" "m7" "m♭57"]))))
+
+(deftest root-relative-and-notes-in-the-scale
+  (testing ""
+    (is (= (notes-in-the-scale (relative-to-root-intervals major-scale)) '("C" "D" "E" "F" "G" "A" "B")))))
