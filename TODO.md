@@ -4,14 +4,12 @@
 
 * Make enharmonically identical intervals not being able to be simultaneously selected at once (such as major third and diminished fourth). Use ```seesaw.binding```
 
-* Add root note in the chords description
+* Add root note in the chords description. The atom may be completed deleted as the value of chords qualities and root note could be only retrieved from listboxes values
 
-* Change screen chords display to a group of textboxes. Later allow button to play chords and show which notes compose the chord
+* Allow a play button to hear chords and show which notes compose the chord
 
 * Make a mobile application version
 
 ## Hot topics
 
-* Have chords separated textboxes (screens) -> update function not currently working
-
-* Adding roman numerals name of chords below the chords textboxes
+* Drop the atom and solely rely on comboboxes values in order to simplify the listening process

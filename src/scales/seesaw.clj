@@ -92,18 +92,17 @@
   (fn [e]
     (let [current-selection (map selection notes-listboxes)
           current-intervals (degrees-to-intervals current-selection)
-          notes-string      (notes-in-the-scale (relative-to-root-intervals current-intervals))
+          notes-string      (notes-in-the-scale (relative-to-root-intervals current-intervals) whole-scale)
           current-chords    (generate-chords current-intervals)
           complete-chords   (map #(clojure.core/str %1 %2) notes-string current-chords)]
       (reset! _chords complete-chords) (update-chords-display complete-chords))))
 
 (listen root-combobox :selection
   (fn [e]
-    (let [position          (get-note-value (selection root-combobox))
-          new-whole-scale   (rotate position whole-scale)
-          current-intervals (degrees-to-intervals (map selection notes-listboxes))
-          notes-string      (notes-in-the-scale (relative-to-root-intervals current-intervals))]
-      (swap! _chords (map #(cons %2 (drop 0 %1)) @_chords new-whole-scale)))))
+    (let [position             (get-note-value (selection root-combobox))
+          permutted-scale      (rotate position whole-scale)
+          current-rr-intervals (relative-to-root-intervals (degrees-to-intervals (map selection notes-listboxes)))
+          notes-string         (notes-in-the-scale current-rr-intervals permutted-scale)])))
 
 (def roman-grid
   "Room attribution for roman grid"

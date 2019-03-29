@@ -74,10 +74,10 @@
     (map #(reduce + %) scale-list)))
 
 ;used in the root implementation
-(defn notes-in-the-scale [root-intervals]
+(defn notes-in-the-scale [root-intervals scale]
   "Yields the notes in the scale as a function of input intervals"
   (let [halfsteps-position (map #(* 2 %) root-intervals)]
-    (map #(nth whole-scale %) halfsteps-position)))
+    (map #(nth scale %) halfsteps-position)))
 
 (def whole-map-halfsteps
   "Maps whole-scale with its intervals values"
