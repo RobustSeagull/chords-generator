@@ -25,11 +25,15 @@
   "Dipslay chords from input scale"
   (text :text "Choose each degree of the scale and see the chords!" :halign :center :editable? false))
 
+(def chords-display
+  "Display chords from input scales in differents text boxes"
+  (doall (map (fn [x] (text :text "" :halign :center :editable? false)) (range 0 7))))
+
 (def roman-num-degrees '("I" "II" "III" "IV" "V" "VI" "VII"))
 
 (defn roman-display []
   "Romans degrees screens"
-  (doall (map (fn [rom-text] (text :text rom-text :halign :center :editable? :false :background :grey)) roman-num-degrees)))
+  (doall (map (fn [rom-text] (text :text rom-text :halign :center :editable? false :background :grey)) roman-num-degrees)))
 
 (def degrees
   "Main map"
@@ -60,11 +64,11 @@
 
 (defn make-listbox [map-degrees rank]
   "Building function fo comboboxes degrees"
-  (combobox :model (nth map-degrees rank)))
+  (combobox :model (nth map-degrees rank) :border [10 40]))
 
 (def root-combobox
   "Comboboxes for the root note"
-  (combobox :model whole-scale))
+  (combobox :model whole-scale :border [10 "Root note" 40]))
 
 (def notes-listboxes
   "Comboboxes for the scale degrees"
@@ -74,9 +78,9 @@
 (doall (map #(selection! %1 %2) notes-listboxes major-degrees))
 (selection root-combobox "Root")
 
-(defn update-chords-text [degree-list]
+(defn update-chords-display [degree-list]
   "Update the value of the chord display screen"
-  (config! chords-text :text (clojure.string/join " " degree-list)))
+  (doall (map #(config! %1 :text %2) chords-display degree-list)))
 
 (defn degrees-to-intervals [notes]
   "Convert map degrees into a computable list of intervals"
@@ -91,7 +95,7 @@
           notes-string      (notes-in-the-scale (relative-to-root-intervals current-intervals))
           current-chords    (generate-chords current-intervals)
           complete-chords   (map #(clojure.core/str %1 %2) notes-string current-chords)]
-      (reset! _chords complete-chords) (update-chords-text complete-chords))))
+      (reset! _chords complete-chords) (update-chords-display complete-chords))))
 
 (listen root-combobox :selection
   (fn [e]
@@ -107,6 +111,15 @@
               :rows 1
               :items (roman-display)))
 
+(def chords-grid
+  "Room attribution for chords grid"
+  (grid-panel :columns 7
+              :rows 1
+              :items chords-display))
+
+(def display-grid
+  (top-bottom-split chords-grid roman-grid :divider-location 5/6))
+
 (def notes-grid
   "Room attrobution for degrees comboboxes"
   (grid-panel :columns 3
@@ -115,9 +128,7 @@
 
 (def upper-grid
   "Room atribution for root combobox and chords display"
-  (left-right-split root-combobox
-                    (top-bottom-split chords-text roman-grid :divider-location 999/1000)
-                    :divider-location 1/8))
+  (left-right-split root-combobox display-grid :divider-location 1/5))
 
 (def main-grid
   "Bundle 'notes-grid' and 'upper-grid'"

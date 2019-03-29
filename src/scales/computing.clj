@@ -47,7 +47,7 @@
 (defn seventh [chord]
   (let [seventh-interval (nth chord 2)]
     (case seventh-interval
-          9/2 (str flat flat "7")
+          9/2 (str "𝄫" "7")
           5 "7"
           11/2 "M7")))
 
