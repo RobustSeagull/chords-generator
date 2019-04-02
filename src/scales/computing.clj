@@ -63,7 +63,7 @@
 ;definitions and functions for root note implementations
 ;*******************************************************
 
-(def whole-scale
+(def chromatic-scale
   "Defines the chromatic scale as a string"
   (list "C" (str "C" sharp "/" "D" flat) "D" (str "D" sharp "/" "E" flat) "E" "F" (str "F" sharp "/" "G" flat) "G" (str "G" sharp "/" "A" flat) "A" (str "A" sharp "/" "B" flat) "B"))
 
@@ -80,8 +80,8 @@
     (map #(nth scale %) halfsteps-position)))
 
 (def whole-map-halfsteps
-  "Maps whole-scale with its intervals values"
-  (zipmap whole-scale (range 0 12)))
+  "Maps chromatic-scale with its intervals values"
+  (zipmap chromatic-scale (range 0 12)))
 
 (defn get-note-value [note]
   "Shortcut value for getting the value of the note interval"

@@ -17,10 +17,6 @@
   "Call the frame"
   (show! main-frame))
 
-(def _chords
-  "The atom containing the chords values"
-  (atom '()))
-
 (def chords-text
   "Dipslay chords from input scale"
   (text :text "Choose each degree of the scale and see the chords!" :halign :center :editable? false))
@@ -68,7 +64,7 @@
 
 (def root-combobox
   "Comboboxes for the root note"
-  (combobox :model whole-scale :border [10 "Root note" 40]))
+  (combobox :model chromatic-scale :border [10 "Root note" 40]))
 
 (def notes-listboxes
   "Comboboxes for the scale degrees"
@@ -76,7 +72,7 @@
 
 ;initialize the comboboxes to the standards degrees values
 (doall (map #(selection! %1 %2) notes-listboxes major-degrees))
-(selection root-combobox "Root")
+(selection root-combobox (first chromatic-scale))
 
 (defn update-chords-display [degree-list]
   "Update the value of the chord display screen"
@@ -87,22 +83,29 @@
   (let [root-relative-intervals (concat '(0) (clojure.core/replace degrees-intervals-map notes) '(6))]
     (map #(reduce - %) (map clojure.core/reverse (partition 2 1 root-relative-intervals)))))
 
-;update the value of the _chords atom and recompute the sequence of chords
+;when intervals changed, recompute the sequence of chords
 (listen notes-listboxes :selection
   (fn [e]
-    (let [current-selection (map selection notes-listboxes)
-          current-intervals (degrees-to-intervals current-selection)
-          notes-string      (notes-in-the-scale (relative-to-root-intervals current-intervals) whole-scale)
-          current-chords    (generate-chords current-intervals)
-          complete-chords   (map #(clojure.core/str %1 %2) notes-string current-chords)]
-      (reset! _chords complete-chords) (update-chords-display complete-chords))))
+    (let [listboxes-values (map selection notes-listboxes)
+          current-intervals (degrees-to-intervals listboxes-values)
+          notes-string      (notes-in-the-scale (relative-to-root-intervals current-intervals) chromatic-scale)
+          chords-quality    (generate-chords current-intervals)
+          complete-chords   (map #(clojure.core/str %1 %2) notes-string chords-quality)]
+       (update-chords-display complete-chords))))
 
+;when root changed, recompute the sequence of chords
 (listen root-combobox :selection
   (fn [e]
     (let [position             (get-note-value (selection root-combobox))
-          permutted-scale      (rotate position whole-scale)
+          permutted-scale      (rotate position chromatic-scale)
           current-rr-intervals (relative-to-root-intervals (degrees-to-intervals (map selection notes-listboxes)))
-          notes-string         (notes-in-the-scale current-rr-intervals permutted-scale)])))
+          notes-string         (notes-in-the-scale current-rr-intervals permutted-scale)
+
+          current-selection    (map selection notes-listboxes)
+          current-intervals    (degrees-to-intervals current-selection)
+          chords-quality       (generate-chords current-intervals)
+          complete-chords      (map #(clojure.core/str %1 %2) notes-string chords-quality)]
+      (update-chords-display complete-chords))))
 
 (def roman-grid
   "Room attribution for roman grid"
@@ -120,7 +123,7 @@
   (top-bottom-split chords-grid roman-grid :divider-location 5/6))
 
 (def notes-grid
-  "Room attrobution for degrees comboboxes"
+  "Room attribution for degrees comboboxes"
   (grid-panel :columns 3
               :rows 2
               :items notes-listboxes))
