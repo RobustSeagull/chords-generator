@@ -34,26 +34,31 @@
 (defn third [chord]
   "Yield the quality of the third"
   (let [third-interval (first chord)]
-    (if (= 2 third-interval ) "" "m")))
+    (case third-interval
+      2 ""        ; major
+      3/2 "m")))  ; minor
 
 (defn fifth [chord]
   "Yield the quality of the fifth"
   (let [fifth-interval (nth chord 1)]
     (case fifth-interval
-          7/2 ""
-          3 (str flat "5")
-          4 (str sharp "5"))))
+          7/2 ""                ; perfect
+          3 (str flat "5")      ; flat
+          4 (str sharp "5"))))  ; augmented
 
 (defn seventh [chord]
   (let [seventh-interval (nth chord 2)]
     (case seventh-interval
-          9/2 (str "𝄫" "7")
-          5 "7"
-          11/2 "M7")))
+          9/2 (str "𝄫" "7") ; diminished
+          5 "7"             ; minor
+          11/2 "M7")))      ; major
 
 (defn alterations [chord]
   "Compute the qualities of one chord and string the result. Intervals must be root relative"
-  (str (third chord) (fifth chord) (seventh chord)))
+    (let [chord-quality (str (third chord) (fifth chord) (seventh chord))]
+      (case chord-quality
+        "m♭5𝄫7" "°"
+        chord-quality)))
 
 (defn generate-chords [scale]
   "Combine alterations and rotate to compute all chords of the given scale"
